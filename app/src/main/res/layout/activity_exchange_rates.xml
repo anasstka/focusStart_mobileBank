@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".ExchangeRatesActivity">
+
+    <LinearLayout
+        android:id="@+id/wr_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/exchange_rates_title"
+            android:textColor="?attr/colorPrimaryDark"
+            android:textSize="@dimen/font_large_20"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_currency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSecondaryVariant"
+        android:clickable="false"
+        android:layout_below="@id/wr_header"/>
+</RelativeLayout>
