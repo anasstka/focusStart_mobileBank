@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">focusStart_mobileBank</string>
+    <string name="app_name">Mobile Bank</string>
+
+    <string name="listview_header_nominal">Единиц</string>
+    <string name="listview_header_name">Валюта</string>
+    <string name="listview_header_value">Курс</string>
+    <string name="exchange_rates_title">Курс валют к рублю</string>
 </resources>
