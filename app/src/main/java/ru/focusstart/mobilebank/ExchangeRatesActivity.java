@@ -33,6 +33,10 @@ public class ExchangeRatesActivity extends AppCompatActivity {
         View header = getLayoutInflater().inflate(R.layout.listview_header_exchange_rates, null);
         listViewValutes.addHeaderView(header);
 
+        loadingData();
+    }
+
+    private void loadingData() {
         AsyncTask.execute(() -> {
             HttpURLConnection connection = null;
             try {
@@ -58,7 +62,6 @@ public class ExchangeRatesActivity extends AppCompatActivity {
                     connection.disconnect();
                 }
             }
-
         });
     }
 
