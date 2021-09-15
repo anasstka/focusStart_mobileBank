@@ -1,6 +1,8 @@
 package ru.focusstart.mobilebank.models;
 
-public class Valute {
+import androidx.annotation.NonNull;
+
+public class Currency {
     private String id;
     private String numCode;
     private String charCode;
@@ -9,9 +11,7 @@ public class Valute {
     private double value;
     private double previous;
 
-    public Valute() {}
-
-    public Valute(String id, String numCode, String charCode, long nominal, String name, double value, double previous) {
+    public Currency(String id, String numCode, String charCode, long nominal, String name, double value, double previous) {
         this.id = id;
         this.numCode = numCode;
         this.charCode = charCode;
@@ -77,16 +77,9 @@ public class Valute {
         this.previous = previous;
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return "Valute{" +
-                "ID='" + id + '\'' +
-                ", NumCode='" + numCode + '\'' +
-                ", CharCode='" + charCode + '\'' +
-                ", Nominal=" + nominal +
-                ", Name='" + name + '\'' +
-                ", Value=" + value +
-                ", Previous=" + previous +
-                '}';
+        return name;
     }
 }
