@@ -2,11 +2,13 @@
 <resources>
     <color name="color_primary">#D8B4A0</color>
     <color name="color_primary_light">#F3D5C4</color>
-    <color name="color_primary_dark">#312D27</color>
     <color name="color_accent">#D77A61</color>
     <color name="color_secondary">#E7DFE4</color>
     <color name="color_secondary_light">#EFF1F3</color>
 
-    <color name="color_red">#8A0800</color>
-    <color name="color_green">#0B8A00</color>
+    <color name="color_brown">#312D27</color>
+    <color name="color_brown_light">#49433A</color>
+
+    <color name="color_red">#CF0C00</color>
+    <color name="color_green">#00CF3A</color>
 </resources>
