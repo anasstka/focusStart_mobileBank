@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
-    tools:context=".ExchangeRatesActivity">
+    tools:context=".activities.ExchangeRatesActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/wr_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:layout_width="48sp"
-            android:layout_height="48sp"
-            android:src="@drawable/ic_arrow_back_24"
-            android:background="@android:color/transparent"/>
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/btn_size_48"
+            android:layout_height="@dimen/btn_size_48"
+            android:background="@android:color/transparent"
+            android:onClick="switchActivity"
+            android:src="@drawable/ic_arrow_back_24" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btn_back"
             android:text="@string/exchange_rates_title"
             android:textColor="?attr/colorPrimaryDark"
-            android:textSize="@dimen/font_large_20"/>
-    </LinearLayout>
+            android:textSize="@dimen/font_large_20" />
+
+        <ImageButton
+            android:layout_width="@dimen/btn_size_48"
+            android:layout_height="@dimen/btn_size_48"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:onClick="reloadListView"
+            android:src="@drawable/ic_reload_24" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lv_currency"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/wr_header"
         android:background="?attr/colorSecondaryVariant"
-        android:clickable="false"
-        android:layout_below="@id/wr_header"/>
+        android:clickable="false" />
 </RelativeLayout>
