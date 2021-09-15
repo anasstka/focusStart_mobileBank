@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TextView">
         <item name="android:textColor">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="TextView.Title" parent="TextView">
+        <item name="android:textSize">@dimen/font_large_20</item>
+    </style>
+
+    <style name="TextView.Main" parent="TextView">
         <item name="android:textSize">@dimen/font_normal_16</item>
+    </style>
+
+    <style name="EditText">
+        <item name="android:textColorHint">@color/color_brown_light</item>
+        <item name="android:textColor">@color/color_brown</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:backgroundTint">@color/color_accent</item>
+        <item name="android:textSize">@dimen/font_normal_16</item>
+        <item name="android:textColor">?attr/colorSecondaryVariant</item>
+        <item name="layout_constraintWidth_percent">0.65</item>
+        <item name="layout_constraintHeight_percent">0.1</item>
+        <item name="cornerRadius">8dp</item>
     </style>
 </resources>
