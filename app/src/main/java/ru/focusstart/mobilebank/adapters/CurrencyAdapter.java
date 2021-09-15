@@ -1,4 +1,4 @@
-package ru.focusstart.mobilebank;
+package ru.focusstart.mobilebank.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,28 +11,29 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ru.focusstart.mobilebank.models.Valute;
+import ru.focusstart.mobilebank.R;
+import ru.focusstart.mobilebank.models.Currency;
 
-public class ValuteAdapter extends BaseAdapter {
+public class CurrencyAdapter extends BaseAdapter {
 
     Context context;
     LayoutInflater inflater;
-    ArrayList<Valute> valutes;
+    ArrayList<Currency> currencies;
 
-    public ValuteAdapter(Context context, ArrayList<Valute> valutes) {
+    public CurrencyAdapter(Context context, ArrayList<Currency> currencies) {
         this.context = context;
-        this.valutes = valutes;
+        this.currencies = currencies;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return valutes.size();
+        return currencies.size();
     }
 
     @Override
-    public Valute getItem(int position) {
-        return valutes.get(position);
+    public Currency getItem(int position) {
+        return currencies.get(position);
     }
 
     @Override
@@ -52,16 +53,16 @@ public class ValuteAdapter extends BaseAdapter {
             view.setBackgroundColor(context.getColor(R.color.color_secondary_light));
         }
 
-        Valute valute = getItem(position);
+        Currency currency = getItem(position);
 
-        ((TextView) view.findViewById(R.id.nominal)).setText(String.valueOf(valute.getNominal()).replace(".", ","));
-        ((TextView) view.findViewById(R.id.name)).setText(valute.getName().replace(".", ","));
+        ((TextView) view.findViewById(R.id.nominal)).setText(String.valueOf(currency.getNominal()).replace(".", ","));
+        ((TextView) view.findViewById(R.id.name)).setText(currency.getName().replace(".", ","));
 
         TextView valueTextView = view.findViewById(R.id.value);
-        Double value = valute.getValue();
-        Double previous = valute.getPrevious();
+        Double value = currency.getValue();
+        Double previous = currency.getPrevious();
         Pair<String, Integer> trendWithColor = trend(value, previous);
-        valueTextView.setText(String.valueOf(value + trendWithColor.first));
+        valueTextView.setText(value + trendWithColor.first);
         valueTextView.setTextColor(trendWithColor.second);
 
         return view;

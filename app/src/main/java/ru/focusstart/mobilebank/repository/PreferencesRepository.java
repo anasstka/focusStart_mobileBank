@@ -1,4 +1,4 @@
-package ru.focusstart.mobilebank;
+package ru.focusstart.mobilebank.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,12 +12,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
-import ru.focusstart.mobilebank.models.Valute;
+import ru.focusstart.mobilebank.models.Currency;
 
 public class PreferencesRepository {
     private static final String APP_PREFERENCES = "PREFS";
 
-    private static final String VALUTE = "VALUTE";
+    private static final String CURRENCY = "CURRENCY";
     private static final String DATE = "DATE";
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
 
@@ -27,27 +27,27 @@ public class PreferencesRepository {
         prefs = context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
     }
 
-    public void saveValutes(ArrayList<Valute> valutes) {
+    public void saveCurrencies(ArrayList<Currency> currencies) {
         Gson gson = new Gson();
         ArrayList<String> objStrings = new ArrayList<>();
-        for (Valute valute : valutes) {
-            objStrings.add(gson.toJson(valute));
+        for (Currency currency : currencies) {
+            objStrings.add(gson.toJson(currency));
         }
 
         String date = dateFormat.format(new Date());
         saveDate(date);
-        prefs.edit().putString(VALUTE, TextUtils.join("‚‗‚", objStrings)).apply();
+        prefs.edit().putString(CURRENCY, TextUtils.join("‚‗‚", objStrings)).apply();
     }
 
-    public ArrayList<Valute> getValutes() {
+    public ArrayList<Currency> getCurrencies() {
         Gson gson = new Gson();
-        ArrayList<String> objStrings = new ArrayList<String>(Arrays.asList(TextUtils.split(prefs.getString(VALUTE, ""), "‚‗‚")));
-        ArrayList<Valute> valutes = new ArrayList<Valute>();
+        ArrayList<String> objStrings = new ArrayList<String>(Arrays.asList(TextUtils.split(prefs.getString(CURRENCY, ""), "‚‗‚")));
+        ArrayList<Currency> currencies = new ArrayList<Currency>();
         for (String str : objStrings) {
-            Valute valute = gson.fromJson(str, Valute.class);
-            valutes.add(valute);
+            Currency currency = gson.fromJson(str, Currency.class);
+            currencies.add(currency);
         }
-        return valutes;
+        return currencies;
     }
 
     private void saveDate(String date) {
