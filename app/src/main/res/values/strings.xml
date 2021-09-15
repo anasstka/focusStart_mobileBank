@@ -5,4 +5,8 @@
     <string name="listview_header_name">Валюта</string>
     <string name="listview_header_value">Курс</string>
     <string name="exchange_rates_title">Курс валют к рублю</string>
+    <string name="currency_converter_title">Конвертер валют</string>
+    <string name="currency_converter_hint">44.12</string>
+    <string name="rub">руб.</string>
+    <string name="currency_converter_btn_convert">КОНВЕРТИРОВАТЬ</string>
 </resources>
