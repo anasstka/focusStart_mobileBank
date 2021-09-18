@@ -19,7 +19,7 @@ public class PreferencesRepository {
 
     private static final String CURRENCY = "CURRENCY";
     private static final String DATE = "DATE";
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
 
     private final SharedPreferences prefs;
 
@@ -41,8 +41,8 @@ public class PreferencesRepository {
 
     public ArrayList<Currency> getCurrencies() {
         Gson gson = new Gson();
-        ArrayList<String> objStrings = new ArrayList<String>(Arrays.asList(TextUtils.split(prefs.getString(CURRENCY, ""), "‚‗‚")));
-        ArrayList<Currency> currencies = new ArrayList<Currency>();
+        ArrayList<String> objStrings = new ArrayList<>(Arrays.asList(TextUtils.split(prefs.getString(CURRENCY, ""), "‚‗‚")));
+        ArrayList<Currency> currencies = new ArrayList<>();
         for (String str : objStrings) {
             Currency currency = gson.fromJson(str, Currency.class);
             currencies.add(currency);

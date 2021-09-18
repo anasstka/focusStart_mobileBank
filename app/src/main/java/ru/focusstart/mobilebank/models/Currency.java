@@ -2,7 +2,9 @@ package ru.focusstart.mobilebank.models;
 
 import androidx.annotation.NonNull;
 
-public class Currency {
+import java.io.Serializable;
+
+public class Currency implements Serializable {
     private String id;
     private String numCode;
     private String charCode;
@@ -10,6 +12,9 @@ public class Currency {
     private String name;
     private double value;
     private double previous;
+
+    public Currency() {
+    }
 
     public Currency(String id, String numCode, String charCode, long nominal, String name, double value, double previous) {
         this.id = id;

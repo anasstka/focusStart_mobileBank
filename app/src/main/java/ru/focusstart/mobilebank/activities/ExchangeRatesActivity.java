@@ -1,6 +1,5 @@
 package ru.focusstart.mobilebank.activities;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import ru.focusstart.mobilebank.DataHelper;
+import ru.focusstart.mobilebank.DataParser;
+import ru.focusstart.mobilebank.ExtensionActivity;
 import ru.focusstart.mobilebank.R;
 import ru.focusstart.mobilebank.adapters.CurrencyAdapter;
 import ru.focusstart.mobilebank.models.Currency;
@@ -19,7 +19,7 @@ import ru.focusstart.mobilebank.repository.PreferencesRepository;
 
 public class ExchangeRatesActivity extends AppCompatActivity {
 
-    ArrayList<Currency> currencies;
+    private ArrayList<Currency> currencies;
     private CurrencyAdapter currencyAdapter;
     private ListView listViewCurrencies;
     private PreferencesRepository preferences;
@@ -41,18 +41,16 @@ public class ExchangeRatesActivity extends AppCompatActivity {
     }
 
     public void switchActivity(View v) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+        ExtensionActivity.switchActivity(this, MainActivity.class, false);
     }
 
     public void reloadListView(View view) {
         AsyncTask.execute(() -> {
-            currencies = DataHelper.sendRequest();
+            currencies = new ArrayList<>(DataParser.sendRequest());
 
             runOnUiThread(() -> {
                 preferences.saveCurrencies(currencies);
                 currencyAdapter.notifyDataSetChanged();
-                listViewCurrencies.setAdapter(currencyAdapter);
                 Toast.makeText(getApplicationContext(), "Данные обновлены!", Toast.LENGTH_SHORT).show();
             });
         });
