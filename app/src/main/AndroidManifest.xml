@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.CurrencyConverterActivity" />
+        <activity
+            android:name=".activities.CurrencyConverterActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity android:name=".activities.ExchangeRatesActivity" />
 
     </application>
