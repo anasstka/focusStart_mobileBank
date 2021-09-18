@@ -41,6 +41,7 @@
             android:layout_marginTop="@dimen/spacing_huge_32"
             app:boxBackgroundColor="?colorSecondaryVariant"
             app:boxBackgroundMode="filled"
+            app:boxStrokeColor="?attr/colorAccent"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +49,15 @@
             app:layout_constraintWidth_percent="0.65">
 
             <EditText
+                android:id="@+id/et_input_rubles"
                 style="@style/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:hint="@string/currency_converter_hint"
                 android:importantForAutofill="no"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textColorHighlight="?attr/colorAccent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,15 +91,19 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="?colorSecondaryVariant"
             app:boxBackgroundMode="filled"
+            app:boxStrokeColor="?attr/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ic_arrow_down"
             app:layout_constraintWidth_percent="0.65">
 
             <AutoCompleteTextView
+                android:id="@+id/actv_currency_selection"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:textColor="?colorPrimaryDark"
+                android:textSize="@dimen/font_normal_16" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,12 +111,12 @@
             android:id="@+id/btn_convert"
             style="@style/Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
             android:layout_marginTop="@dimen/spacing_huge_32"
             android:text="@string/currency_converter_btn_convert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/currency_selection_field" />
+            app:layout_constraintTop_toBottomOf="@id/currency_selection_field"
+            app:layout_constraintWidth_percent="0.65" />
 
         <TextView
             android:id="@+id/tv_conversion_result"

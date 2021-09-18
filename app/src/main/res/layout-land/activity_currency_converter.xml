@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".activities.CurrencyConverterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/btn_size_48"
+            android:layout_height="@dimen/btn_size_48"
+            android:background="@android:color/transparent"
+            android:onClick="switchActivity"
+            android:src="@drawable/ic_arrow_back_24" />
+
+        <TextView
+            style="@style/TextView.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/currency_converter_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wr_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_rubles_field"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="?colorSecondaryVariant"
+                app:boxBackgroundMode="filled"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toTopOf="@+id/ic_arrow_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_percent="0.65">
+
+                <EditText
+                    android:id="@+id/et_input_rubles"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:hint="@string/currency_converter_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/input_rubles_field"
+                android:layout_marginStart="@dimen/spacing_small_8"
+                android:text="@string/rub"
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="@dimen/font_normal_16"
+                app:layout_constraintBottom_toBottomOf="@+id/input_rubles_field"
+                app:layout_constraintStart_toEndOf="@id/input_rubles_field" />
+
+            <ImageView
+                android:id="@+id/ic_arrow_down"
+                android:layout_width="@dimen/btn_size_48"
+                android:layout_height="@dimen/btn_size_48"
+                android:layout_below="@id/input_rubles_field"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_arrow_down_24"
+                app:layout_constraintBottom_toTopOf="@+id/currency_selection_field"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_rubles_field"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/currency_selection_field"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="?colorSecondaryVariant"
+                app:boxBackgroundMode="filled"
+                app:layout_constraintBottom_toTopOf="@+id/btn_convert"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ic_arrow_down"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_percent="0.65">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_currency_selection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="?colorPrimaryDark"
+                    android:textSize="@dimen/font_normal_16" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_convert"
+                style="@style/Button"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/spacing_normal_16"
+                android:text="@string/currency_converter_btn_convert"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/currency_selection_field"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_percent="0.65" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_conversion_result"
+                style="@style/TextView.Main"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/spacing_huge_32"
+                android:layout_marginRight="@dimen/spacing_huge_32"
+                android:background="?attr/colorPrimaryVariant"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.75"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="44.12 руб. — 12000 долларов" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
