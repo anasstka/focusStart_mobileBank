@@ -11,7 +11,7 @@ import java.util.Collections;
 
 import ru.focusstart.mobilebank.models.Currency;
 
-public class DataHelper {
+public class DataParser {
 
     private static final String API = "https://www.cbr-xml-daily.ru/daily_json.js";
 
