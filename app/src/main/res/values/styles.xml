@@ -20,11 +20,10 @@
     </style>
 
     <style name="Button">
+        <item name="android:layout_height">90dp</item>
         <item name="android:backgroundTint">@color/color_accent</item>
         <item name="android:textSize">@dimen/font_normal_16</item>
         <item name="android:textColor">?attr/colorSecondaryVariant</item>
-        <item name="layout_constraintWidth_percent">0.65</item>
-        <item name="layout_constraintHeight_percent">0.1</item>
         <item name="cornerRadius">8dp</item>
     </style>
 </resources>
